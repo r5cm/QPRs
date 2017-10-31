@@ -70,8 +70,8 @@ interacc$fecha <- substr(interacc$fecha, 1, 10)
 interacc$fecha <- as.Date(interacc$fecha)
 
 ## Filtrar para incluir solo datos del trimestre
-fecha_inf <- as.Date("2017-04-01")
-fecha_sup <- as.Date("2017-06-30")
+fecha_inf <- as.Date("2017-07-01")
+fecha_sup <- as.Date("2017-09-30")
 
 indice.q <- interacc$fecha >= fecha_inf & interacc$fecha <= fecha_sup
 interaccQ <- subset(interacc, indice.q)
@@ -98,7 +98,7 @@ visita.Qm2Q1 <- semi_join(interaccQm2, cc.Qactual, by = "cc")
 cc.Qm2Q1 <- data.frame(cc = visita.Qm2Q1$cc)
 
 # Bind de los dos y cálculo de indicador
-visitaQm2Q1 <- cbind(cc.Qactual$cc, cc.Qm2Q1$cc)
+visita.Qm2Q1 <- cbind(cc.Qactual$cc, cc.Qm2Q1$cc)
 write.csv(cc.Qactual$cc, "1.csv")
 write.csv(cc.Qm2Q1$cc, "2.csv")
 
@@ -124,8 +124,7 @@ i04515 <- length(unique(interaccQ$cc))
 # Personas que recibieron cualquier tipo de visita (Una en el actual
 # y por lo menos otra en los dos trimestres anteriores).
 
-visitas.x.prod <- data.frame(table(interaccQ_3$cc))
-i04510 <- nrow(visitas.x.prod[visitas.x.prod$Freq >= 2, ])
+write.csv(interacc, "interacciones3Q.csv")
 
 
 
