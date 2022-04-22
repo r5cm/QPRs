@@ -2,16 +2,9 @@
 
 ## Andes
 library(RForcecom)
-username <- "admin@andes.org"
-password <- "gfadm913XQWRiDpPU6NzJC9Cmm185FF2"
+username <- readline(prompt = "Enter username: ")
+password <- readline(prompt = "Enter password: ")
 session <- rforcecom.login(username, password)
-
-## Anserma
-library(RForcecom)
-username <- "admin@anserma.org"
-password <- "admgf2017#Nz9VeZ766qGsxVoRF1p29WYh"
-session <- rforcecom.login(username, password)
-
 
 
 # Descargar datos de Salesforce -------------------------------------------
